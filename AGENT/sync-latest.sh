@@ -15,10 +15,20 @@ cd "$REPO"
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting sync" >> "$LOG"
 
-# Pull latest from GitHub
-if ! git pull --quiet origin main 2>>"$LOG"; then
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] git pull failed" >> "$LOG"
-    exit 1
+# Pull latest from GitHub — retry up to 3 times for transient network failures
+PULL_OK=0
+for attempt in 1 2 3; do
+    if git pull --quiet --rebase origin main 2>>"$LOG"; then
+        PULL_OK=1
+        break
+    fi
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] git pull attempt $attempt failed; retrying in 30s" >> "$LOG"
+    sleep 30
+done
+
+if [ "$PULL_OK" -ne 1 ]; then
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] git pull failed after 3 attempts; copying current local file as fallback" >> "$LOG"
+    # Don't exit — still copy whatever local file is newest, so user has *something*
 fi
 
 # Find the newest versioned xlsx (highest v1.X)
