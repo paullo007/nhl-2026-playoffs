@@ -24,7 +24,7 @@ b  = wb['Bracket']
 #   P3 ~16:55 — O. Zellweger (ANA) EV -> 2-2 (bar down from left dot, 3:05 remaining)
 #   OT  4:10 — P. Dorofeyev (VGK) OT winner -> 3-2 VGK (rebound near left post off Eichel shot)
 # GW: Dorofeyev OT goal (VGK's 3rd goal = 1 more than ANA's final total of 2)
-# Count: VGK 3 (Dorofeyev 2 + Hertl 1 = 3); ANA 2 (Sennecke + Zellweger = 2)
+# Count: VGK 3 (Dorofeyev 2 + Hertl 1 = 3); ANA 2 (Sennecke + Zellweger = 2) ✓
 # VGK leads series 3-2
 ws.cell(row=69, column=9).value  = 'Vegas 3, Anaheim 2 (OT)'
 ws.cell(row=69, column=10).value = 'VGK: P. Dorofeyev (2, 1 PP, OT winner), T. Hertl | ANA: B. Sennecke (PP), O. Zellweger'
@@ -40,7 +40,7 @@ ws.cell(row=69, column=10).value = 'VGK: P. Dorofeyev (2, 1 PP, OT winner), T. H
 #   P3 18:37 — N. MacKinnon (COL) EV -> 3-3 (wrist shot top shelf, COL goalie pulled 6-on-5)
 #   OT  3:52 — B. Kulak (COL) OT winner -> 4-3 COL (one-timer off Necas crossing pass, right dot)
 # GW: Kulak (OT winner)
-# Count: COL 4 (Kelly+Drury+MacKinnon+Kulak=4); MIN 3 (Johansson+Foligno*2=3)
+# Count: COL 4 (Kelly+Drury+MacKinnon+Kulak=4); MIN 3 (Johansson+Foligno×2=3) ✓
 # COL wins series 4-1
 ws.cell(row=70, column=9).value  = 'Colorado 4, Minnesota 3 (OT) (COL wins series 4-1)'
 ws.cell(row=70, column=10).value = 'COL: P. Kelly, J. Drury, N. MacKinnon, B. Kulak (OT winner) | MIN: M. Johansson, N. Foligno (2)'
